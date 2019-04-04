@@ -15,6 +15,11 @@ class HomeController extends Controller
         return $content
             ->header('Dashboard')
             ->description('Description...')
+            ->breadcrumb(
+                ['text' => '首页', 'url' => '/admin'],
+                ['text' => '用户管理', 'url' => '/admin/users'],
+                ['text' => '编辑用户']
+            )
             ->row(Dashboard::title())
             ->row(function (Row $row) {
 
