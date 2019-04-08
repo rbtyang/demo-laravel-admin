@@ -31,8 +31,8 @@
             data: data,
             success: function (result) {
                 console.log('robotyang debug result =', result);
-                location.reload();
-                // toastr.success('切换成功');
+                toastr.success('切换成功, 请刷新数据');
+                // location.reload();
             },
             error: function (jqXHR, textStatus, errorThrown) { ////https://www.cnblogs.com/hangaozu/p/9008310.html
                 console.log('robotyang debug jqXHR =', jqXHR);
