@@ -99,4 +99,13 @@ return [
         'filter_placeholder' => '过滤',
     ],
     'menu_titles' => [],
+    'iframe_tabs' => [
+        'oprations' => '页签操作',
+        'refresh_current' => '刷新当前',
+        'close_current' => '关闭当前',
+        'close_all' => '关闭全部',
+        'close_other' => '关闭其他',
+        'open_in_new' => '新窗口打开',
+        'open_in_pop' => '弹出窗打开'
+    ],
 ];

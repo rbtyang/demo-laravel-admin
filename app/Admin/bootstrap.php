@@ -1,5 +1,7 @@
 <?php
 
+use Encore\Admin\Facades\Admin;
+use Encore\Admin\Form;
 use Encore\Admin\Grid\Column;
 use App\Admin\Extensions\Popover;
 
@@ -23,7 +25,12 @@ use App\Admin\Extensions\Popover;
  *
  */
 
-Encore\Admin\Form::forget(['map', 'editor']);
+Admin::navbar(function (\Encore\Admin\Widgets\Navbar $navbar) {
+    $right_store_id = session('right_store_id');
+    $navbar->left(view('store-list', ['right_store_id' => $right_store_id]));
+});
+
+Form::forget(['map', 'editor']);
 
 Column::extend('color', function ($value, $color) {
     return "<span style='color: $color'>$value</span>";
