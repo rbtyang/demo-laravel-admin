@@ -40,10 +40,10 @@ class PriceController extends Controller
         $grid->id('Id');
         $grid->store_id('Store id');
         $grid->name('Name');
-        $grid->store_stock_id('Store stock id');
-        $grid->uom_id('Uom id');
+        $grid->stock_id('Store stock id');
+        $grid->sale_uom_id('Uom id');
         $grid->price('Price');
-        $grid->price_client('Price client');
+        $grid->client_price('Price client');
         $grid->status('Status');
         $grid->created_at('Created at');
         $grid->updated_at('Updated at');
@@ -79,10 +79,10 @@ class PriceController extends Controller
         $show->id('Id');
         $show->store_id('Store id');
         $show->name('Name');
-        $show->store_stock_id('Store stock id');
-        $show->uom_id('Uom id');
+        $show->stock_id('Store stock id');
+        $show->sale_uom_id('Uom id');
         $show->price('Price');
-        $show->price_client('Price client');
+        $show->client_price('Price client');
         $show->status('Status');
         $show->created_at('Created at');
         $show->updated_at('Updated at');
@@ -116,10 +116,10 @@ class PriceController extends Controller
 
         $form->number('store_id', 'Store id');
         $form->text('name', 'Name');
-        $form->number('store_stock_id', 'Store stock id');
-        $form->number('uom_id', 'Uom id');
+        $form->number('stock_id', 'Store stock id');
+        $form->number('sale_uom_id', 'Uom id');
         $form->number('price', 'Price');
-        $form->number('price_client', 'Price client');
+        $form->number('client_price', 'Price client');
         $form->switch('status', 'Status');
 
         return $form;

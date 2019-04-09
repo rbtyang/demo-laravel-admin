@@ -37,7 +37,6 @@ class UomController extends Controller
     protected function grid()
     {
         $store = UtilHelper::getRightStore();
-
         $grid = new Grid(new UomModel);
 
         $grid->id('Id');
@@ -111,9 +110,9 @@ class UomController extends Controller
      */
     protected function form()
     {
+        $store = UtilHelper::getRightStore();
         $form = new Form(new UomModel);
 
-        $store = UtilHelper::getRightStore();
         $form->text('store_id', 'Store id')->readOnly()->value($store->id);
         $form->text('name', 'Name');
         $form->switch('need_to_weigh', 'Need to weigh');

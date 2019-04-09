@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\AdminBuilder;
+use Encore\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
 
 class CategoryModel extends Model
 {
+    use ModelTree, AdminBuilder;
+
 //    protected $connection = 'report'; //数据库连接 (rep 库的表，请取消注释)
 
     protected $table = 'category'; //表名
@@ -39,10 +43,14 @@ class CategoryModel extends Model
 
     /* 构造器 *************************************************/
 
-//    function __construct($attrs=[])
-//    {
-//        parent::__construct($attrs);
-//    }
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->setParentColumn('parent_id');
+        $this->setOrderColumn('sort');
+        $this->setTitleColumn('name');
+    }
 
     /* 访问器、修改器*************************************************/
 

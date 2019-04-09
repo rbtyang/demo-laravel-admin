@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
+use App\Models\CategoryModel;
 use Encore\Admin\Controllers\Dashboard;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
@@ -20,6 +20,15 @@ class ExampleTest extends TestCase
 
     public function testDashboard()
     {
-        $dsb = Dashboard::extensions();
+        $exts = Dashboard::extensions();
+
+        $this->assertTrue(true);
+    }
+
+    public function testCategoryTree()
+    {
+        $tree = CategoryModel::tree();
+
+        $this->assertTrue(true);
     }
 }

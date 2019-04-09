@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableStock extends Migration
 {
@@ -19,18 +19,19 @@ class CreateTableStock extends Migration
             $table->integer('store_id')->comment('所属门店id');
             $table->string('name')->comment('商品库存名称');
             $table->string('memory_code')->comment('助记码'); //自动根据商品名称生成首拼
-            $table->integer('uom_id')->comment('库存单位id');
-            $table->integer('inv_real')->comment('实际库存/库存数量'); //选填
+            $table->integer('stock_uom_id')->comment('库存单位id');
+            $table->string('stock_uom_name')->comment('库存单位名称');
+            $table->decimal('inv', 8, 3)->comment('实际库存/库存数量: 单位kg'); //选填
             $table->integer('category_id')->comment('商品类别id');
-            $table->tinyInteger('status')->comment('商品库存状态: 0下架, 1上架');
+            $table->tinyInteger('status')->comment('商品库存状态: 0下架, 1上架, 2实效');
             /*选填项*/
-            $table->integer('price_stock')->comment('库存单价/库存成本');
-            $table->string('third_party_id')->comment('商品编码/第三方编码');
+            $table->decimal('stock_price', 8, 2)->comment('库存单价/库存成本: 单位元');
+            $table->string('barcode')->comment('商品编码/第三方编码');
             $table->string('memo')->comment('商品备注');
             $table->timestamps();
             /*索引项*/
             $table->index('store_id');
-            $table->index('uom_id');
+            $table->index('stock_uom_id');
             $table->index('category_id');
         });
     }
